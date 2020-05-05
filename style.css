@@ -1,0 +1,65 @@
+:root {
+
+  /* 設定滑鼠根變量 */
+  --mouse_x;
+  --mouse_y;
+  --radius: 40px;
+  --factor: 1;
+  --scale;
+
+}
+
+body {
+
+  background-color: #000;
+
+}
+
+
+
+#ball {
+
+  width: var(--radius);
+  height: var(--radius);
+  border-radius: 50%;
+  background-color: #FBD771;
+  position: absolute;
+
+  /* 運用變量，且把變量變成有單位
+  var(--mouse_x) * 1px;
+  var(--mouse_y) * 1px; */
+
+  transform: translate(calc(var(--mouse_x) * 1px - var(--radius) / 2), calc(var(--mouse_y) * 1px - var(--radius) / 2));
+
+}
+
+.halo {
+
+  width: var(--radius);
+  height: var(--radius);
+  border-radius: 50%;
+  background-color: #FBD771;
+  opacity: 0.15;
+  position: absolute;
+
+  transform: scale(calc(var(--factor) * var(--scale)));
+
+}
+
+.halo:nth-of-type(1) {
+
+  --factor: 0.3;
+
+}
+
+.halo:nth-of-type(2) {
+
+  --factor: 0.5;
+
+}
+
+.halo:nth-of-type(3) {
+
+  --factor: 0.9;
+
+}
